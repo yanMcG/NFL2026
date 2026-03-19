@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 // REST API /teams GET route
-app.route('/Team')
+app.route('/teams')
   .get(function (req, res) {  
     model.getPlayers(req, res);
   })
