@@ -31,6 +31,50 @@ exports.getPlayers = function(req,res){
     });	
 }
 
+exports.getTeams = function(req,res){
+
+    connection.query(`SELECT * FROM teams`, function(err, rows, fields) {
+        if (err) throw err;
+
+        res.status(200);  // OK
+        res.send(JSON.stringify(rows));	  
+    });	
+}
+
+
+exports.getFixtures = function(req,res){
+
+    connection.query(`SELECT * FROM fixtures`, function(err, rows, fields) {
+        if (err) throw err;
+
+        res.status(200);  // OK
+        res.send(JSON.stringify(rows));	  
+    });	
+}
+
+
+exports.getUsers = function(req,res){
+
+    connection.query(`SELECT * FROM users`, function(err, rows, fields) {
+        if (err) throw err;
+
+        res.status(200);  // OK
+        res.send(JSON.stringify(rows));	  
+    });	
+}
+
+exports.getManagers = function(req,res){
+
+    connection.query(`SELECT * FROM managers`, function(err, rows, fields) {
+        if (err) throw err;
+
+        res.status(200);  // OK
+        res.send(JSON.stringify(rows));	  
+    });	
+}
+
+
+
 // GET /team/ID
 exports.getTeam = function(req,res){
 
