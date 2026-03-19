@@ -24,6 +24,28 @@ app.route('/teams')
     model.getPlayers(req, res);
   })
 
+  app.route('/players')
+  .get(function (req, res) {  
+    model.getPlayers(req, res);
+  })
+
+
+  app.route('/fixtures')
+  .get(function (req, res) {  
+    model.getPlayers(req, res);
+  })
+
+
+  app.route('/managers')
+  .get(function (req, res) {  
+    model.getPlayers(req, res);
+  })
+
+  app.route('/users')
+  .get(function (req, res) {  
+    model.getPlayers(req, res);
+  })
+
 
 
 var myServer = app.listen(3000, function() {

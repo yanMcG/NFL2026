@@ -9,13 +9,13 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : '',
-  database : 'playersDB',
+  database : 'gaanfl2026',
   timezone: 'utc+0'  
 });
 
 connection.connect(function(err){
 	if(err) throw err;
-	console.log(`Sucessfully connected to MySQL database playersDB`);
+	console.log(`Sucessfully connected to MySQL database gaanfl2026`);
 });
 
 ///////////////////////////////////////////////////////////////////////////////////////////
