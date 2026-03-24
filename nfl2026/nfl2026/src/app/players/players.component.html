@@ -1,0 +1,12 @@
+<hr>
+<h2>Players</h2>
+<ul>
+    {{ players.length  }}
+    @for (player of players; track player.id){
+        <li>{{player.name}}</li>
+    }
+</ul>
+<hr>
+<button (click) = 'addPlayer()'>Add Player</button>
+<!-- <p>{{ newPlayer | json}}</p> -->
+<p>{{ newPlayer | json}}</p>
