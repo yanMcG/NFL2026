@@ -1,1 +1,10 @@
-<p>teams works!</p>
+<hr>
+<h2>Teams</h2>
+<ul>
+    {{ teams.length  }}
+    @for (team of teams; track team.id){
+        <li>{{team.name}}</li>
+    }
+</ul>
+<hr>
+
