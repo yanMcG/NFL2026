@@ -39,13 +39,12 @@ app.route('/fixtures')
 app.route('/managers')
   .get(function (req, res) {  
     model.getManagers(req, res);
-})
+});
 
 app.route('/users')
   .get(function (req, res) {  
     model.getUsers(req, res);
-})
-
+});
 
 
 var myServer = app.listen(3000, function() {

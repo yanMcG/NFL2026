@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { PlayersService } from '../players.service';
+import { Team } from '../player';
 
 @Component({
   selector: 'app-routes',
@@ -8,5 +10,20 @@ import { Component } from '@angular/core';
   styleUrl: './routes.component.css'
 })
 export class RoutesComponent {
+
+  interfacePlayers : Team[] = []
+    teams: Team[] = [] 
+    playerService = inject(PlayersService);
+
+  getTeamsData(){
+    console.log('clicked me')
+    this.playerService.getTeams().subscribe(
+        response => {
+          this.teams = response;
+          console.log(response);
+        }
+      );
+    
+  }
 
 }
