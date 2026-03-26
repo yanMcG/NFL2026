@@ -1,10 +1,18 @@
 <hr>
 <h2>Teams</h2>
-<ul>
-    {{ teams.length  }}
-    @for (team of teams; track team.id){
-        <li>{{team.name}}</li>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (team of teams; track team.id){   
+        <tr>
+            <td><span style.color="rgb({{team.rgb}})" >&#9679;</span> {{team.name}}</td>
+            <td>{{team.powerrank}}</td>
+        </tr>
     }
-</ul>
-<hr>
-
+  </tbody>
+</table>
