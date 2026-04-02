@@ -1,1 +1,25 @@
-<p>fixtures works!</p>
+<h2>Fixtures</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Division</th>
+      <th scope="col">Score</th>
+      <th scope="col">Score</th>
+      <th scope="col">Away Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (fixture of fixtures; track fixture.id){
+        <tr>
+            <td>{{fixture.division}}</td>
+            <td><span style.color="rgb({{teamColour[fixture.hteam]}})" >&#9679;</span>{{fixture.hteam}}</td>
+            <td>{{fixture.hteamscore}}</td>
+            <td>{{fixture.ateamscore}}</td>
+            <td><span style.color="rgb({{teamColour[fixture.ateam]}})" >&#9679;</span>{{fixture.ateam}}</td>
+        </tr>
+    }
+
+  
+
+  </tbody>
+</table>
