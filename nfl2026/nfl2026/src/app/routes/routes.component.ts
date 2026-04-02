@@ -14,6 +14,7 @@ export class RoutesComponent {
   interfacePlayers : Team[] = []
     teams: Team[] = [] 
     playerService = inject(PlayersService);
+    jsonData: any;
 
   getTeamsData(){
     console.log('clicked me')
@@ -21,9 +22,13 @@ export class RoutesComponent {
         response => {
           this.teams = response;
           console.log(response);
+          let jsonContainer = document.getElementById('json-container');
+          if (jsonContainer != null) {
+            jsonContainer.innerHTML = `<pre>${JSON.stringify(response, null, 2)}</pre>`;
+          }
         }
       );
-    
+
   }
 
 }
