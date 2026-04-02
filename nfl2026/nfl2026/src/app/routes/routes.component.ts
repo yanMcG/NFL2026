@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { PlayersService } from '../players.service';
-import { Team } from '../player';
+import { Team } from '../team';
 
 @Component({
   selector: 'app-routes',

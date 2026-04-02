@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { Team } from '../player';
-import { PlayersService } from '../players.service';
+import { Team } from '../team';
+import { TeamsService } from '../teams.service';
 import {CommonModule} from '@angular/common';
 
 
@@ -13,14 +13,14 @@ import {CommonModule} from '@angular/common';
 })
 export class TeamsComponent {
 
-  displayPlayers:boolean = true;
-  interfacePlayers : Team[] = []
-  teams: Team[] = [] 
-  playerService = inject(PlayersService);
+  // displayPlayers:boolean = true;
+  // interfacePlayers : Team[] = []
+  teams: Team[] = [];
+  teamService = inject(TeamsService);
 
   //load constructor of player array data. via service
   constructor(){
-      this.playerService.getTeams().subscribe(
+      this.teamService.getTeams().subscribe(
         response => {
           this.teams = response;
         }

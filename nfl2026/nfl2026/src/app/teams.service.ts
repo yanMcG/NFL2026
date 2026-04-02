@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class PlayersService {
+export class TeamsService {
   url = 'http://localhost:3000/teams/'
 
 
