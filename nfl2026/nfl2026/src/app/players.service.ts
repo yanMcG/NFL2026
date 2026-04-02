@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PlayersService {
-  url = 'http://localhost:3000/teams/'
+  url = 'http://localhost:3000/players/'
 
 
   
