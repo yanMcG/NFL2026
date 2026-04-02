@@ -7,17 +7,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ManagersService {
-url = 'http://localhost:3000/managers/'
+  managerUrl = 'http://localhost:3000/managers/'
 
-
-  
-  constructor(private http: HttpClient) { }
-
-  //return player array data
-  getPlayers() : Observable<Manager[]>{
-  return this.http.get<Manager[]>(this.url)}
+  constructor(private http: HttpClient) { 
+  }
 
   getManagers() : Observable<Manager[]>{
-    return this.http.get<Manager[]>(this.url)
+    return this.http.get<Manager[]>(this.managerUrl)
   }
 }

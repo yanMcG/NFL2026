@@ -3,23 +3,21 @@ import { Injectable } from '@angular/core';
 import { Team } from './team';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Player } from './player';
+import { Manager } from './manager';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlayersService {
-  url = 'http://localhost:3000/players/'
+  playerUrl = 'http://localhost:3000/players/'
 
-
-  
   constructor(private http: HttpClient) { }
 
   //return player array data
-  getPlayers() : Observable<Team[]>{
-  return this.http.get<Team[]>(this.url)}
-
-  getTeams() : Observable<Team[]>{
-    return this.http.get<Team[]>(this.url)
+  getPlayers() : Observable<Player[]>{
+  return this.http.get<Player[]>(this.playerUrl)
   }
+
   
 }

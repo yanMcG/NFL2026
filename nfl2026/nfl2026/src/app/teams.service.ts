@@ -9,14 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class TeamsService {
   url = 'http://localhost:3000/teams/'
-
-
   
   constructor(private http: HttpClient) { }
-
-  //return player array data
-  getPlayers() : Observable<Team[]>{
-  return this.http.get<Team[]>(this.url)}
 
   getTeams() : Observable<Team[]>{
     return this.http.get<Team[]>(this.url)

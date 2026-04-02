@@ -18,13 +18,13 @@
       <td>/players</td>
       <td>GET players</td>
       <td><a href="http://localhost:3000/players">localhost://3000/players</a></td>
-      <button type="button" class="btn btn-primary">GET</button>
+      <button type="button" class="btn btn-primary" (click)="getPlayersData()">GET</button>
     </tr>
     <tr>
       <td>/managers</td>
       <td>GET managers</td>
       <td><a href="http://localhost:3000/managers">localhost://3000/managers</a></td>
-      <button type="button" class="btn btn-primary">GET</button>
+      <button type="button" class="btn btn-primary" (click)="getManagersData()">GET</button>
     </tr>
     <tr>
       <td>/fixtures</td>
@@ -41,7 +41,7 @@
   </tbody>
 </table>
 
-
+<h6>JSON Data</h6>
 <div id="json-container">
-  <pre>{{jsonData}}</pre>
+  {{ jsonData | json}}
 </div>
