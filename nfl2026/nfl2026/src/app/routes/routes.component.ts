@@ -5,11 +5,13 @@ import { Component, inject } from '@angular/core';
 import { Team } from '../team';
 import { Player } from '../player';
 import { Manager } from '../manager';
+import { Fixture } from '../fixture';
 
 //services to get data
 import { ManagersService } from '../managers.service';
 import { PlayersService } from '../players.service';
 import { TeamsService } from '../teams.service';
+import { FixturesService } from '../fixtures.service';
 
 
 //Pipes to display json data
@@ -31,10 +33,12 @@ export class RoutesComponent {
   teams: Team[] = [] ;
   players: Player[] = [];
   managers: Manager[] = [];
+  fixtures: Fixture[] = [];
 
   playerService = inject(PlayersService);
   teamsService = inject(TeamsService);
   managersService = inject(ManagersService);
+  fixturesService = inject(FixturesService);
 
   //its the varibale storing the data for eahc object
   jsonData: any[] = [];
@@ -71,6 +75,20 @@ export class RoutesComponent {
   getManagersData(){
     console.log('clicked me')
     this.managersService.getManagers().subscribe(
+        response => {
+          this.jsonData = response;
+          console.log(this.jsonData);
+          let jsonContainer = document.getElementById('json-container');
+          if (jsonContainer) {
+            jsonContainer.innerHTML = `<pre>${JSON.stringify(this.jsonData, null, 1)}</pre>`;
+          }
+        }
+      );
+    }
+
+    getFixturesData(){
+    console.log('clicked me')
+    this.fixturesService.getFixtures().subscribe(
         response => {
           this.jsonData = response;
           console.log(this.jsonData);
