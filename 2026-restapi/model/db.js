@@ -74,8 +74,6 @@ exports.getManagers = function(req,res){
 }
 
 
-
-// GET /team/ID
 exports.getTeam = function(req,res){
 
     connection.query(`SELECT * FROM players WHERE id=${req.params.id}`, function(err, rows, fields) {

@@ -45,3 +45,7 @@ https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/8.2.12/
 3. after running, go to localhost, then if xamp is running it will pop up, create the DB by importing the db gaanfl2026 into xxamp
 4. go to visual studio code and then cd into the 2026-restapi and run the index.js through npx nodemon index.js
 3. test to see on port 3000 / routeName that youre getting the nfl data.
+
+
+
+NOTE: XXAMP RUNNING ON PORT 8080 not 3000, i changed the internal files as i had a bunhc of trouble getting this to run on my flashdrive in the college computers

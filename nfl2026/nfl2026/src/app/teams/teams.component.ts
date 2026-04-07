@@ -18,7 +18,7 @@ export class TeamsComponent {
   teams: Team[] = [];
   teamService = inject(TeamsService);
 
-  //load constructor of player array data. via service
+  //load constructor of player array data. using service
   constructor(){
       this.teamService.getTeams().subscribe(
         response => {

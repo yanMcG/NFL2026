@@ -1,25 +1,36 @@
 <h2>Fixtures</h2>
+
+<form action="">
+  <input type="radio" name="division" value="D1">D1
+  <input type="radio" name="division" value="D2">D2
+  <input type="radio" name="division" value="D3">D3
+  <input type="radio" name="division" value="D4">D4
+</form>
+
+
+
 <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Division</th>
+      <th scope="col">Home Team</th>
       <th scope="col">Score</th>
       <th scope="col">Score</th>
       <th scope="col">Away Team</th>
     </tr>
   </thead>
   <tbody>
-    @for (fixture of fixtures; track fixture.id){
+  
+     @for (fixture of fixtures; track fixture.id){
         <tr>
             <td>{{fixture.division}}</td>
-            <td><span style.color="rgb({{teamColour[fixture.hteam]}})" >&#9679;</span>{{fixture.hteam}}</td>
+            <td>{{fixture.hteam}}</td>
             <td>{{fixture.hteamscore}}</td>
             <td>{{fixture.ateamscore}}</td>
-            <td><span style.color="rgb({{teamColour[fixture.ateam]}})" >&#9679;</span>{{fixture.ateam}}</td>
+            <td>{{fixture.ateam}}</td>
         </tr>
     }
 
-  
-
+<!--             <td><span [style.color]="'rgb(' + teamColour[fixture.hteam] + ')'" >&#9679;</span>{{fixture.hteam}}</td> -->
   </tbody>
 </table>
