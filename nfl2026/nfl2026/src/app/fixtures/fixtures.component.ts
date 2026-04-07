@@ -26,6 +26,7 @@ export class FixturesComponent {
  // teamColour: Team[] = [];
 
  selectedoption : string = ''
+ roundNum : number = 1 ;
 
  options = [
   {id : '1', value: 0, label: 'All'},
@@ -56,4 +57,5 @@ export class FixturesComponent {
       // );
 
   }
+
 }
