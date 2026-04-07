@@ -1,13 +1,12 @@
 <h2>Fixtures</h2>
 
+
 <form action="">
-  <input type="radio" name="division" value="D1">D1
-  <input type="radio" name="division" value="D2">D2
-  <input type="radio" name="division" value="D3">D3
-  <input type="radio" name="division" value="D4">D4
-</form>
-
-
+<div style="display: flex; gap: 1%;">
+  @for (option of options; track option.id){
+    <input [(ngModel)]="selectedoption" type="radio" name="division" [value]="option.value">{{option.label}}
+  }
+</div>
 
 <table class="table table-striped">
   <thead>
@@ -20,9 +19,9 @@
     </tr>
   </thead>
   <tbody>
-  
+  <!--print fixtures for the selected division, if all is selected print all divisions -->
      @for (fixture of fixtures; track fixture.id){
-        <tr>
+        <tr *ngIf="fixture.division == +selectedoption || +selectedoption === 0">
             <td>{{fixture.division}}</td>
             <td>{{fixture.hteam}}</td>
             <td>{{fixture.hteamscore}}</td>
@@ -31,6 +30,6 @@
         </tr>
     }
 
-<!--             <td><span [style.color]="'rgb(' + teamColour[fixture.hteam] + ')'" >&#9679;</span>{{fixture.hteam}}</td> -->
   </tbody>
 </table>
+</form>

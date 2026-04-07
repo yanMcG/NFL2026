@@ -23,8 +23,17 @@ export class FixturesComponent {
 
   teams: Team[] = [];
   teamService = inject(TeamsService);
-
  // teamColour: Team[] = [];
+
+ selectedoption : string = ''
+
+ options = [
+  {id : '1', value: 0, label: 'All'},
+  {id : '2', value: 1, label: 'D1'},
+  {id : '3', value: 2, label: 'D2'},
+  {id : '4', value: 3, label: 'D3'},
+  {id : '5', value: 4, label: 'D4'},
+ ]
 
   constructor(){
       this.fixturesService.getFixtures().subscribe(
