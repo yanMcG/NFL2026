@@ -17,25 +17,41 @@ import { CommonModule } from '@angular/common';
 export class TeamRankingsComponent {
   teams: Team[] = [];
   teamService = inject(TeamsService);
-  voteRemaining = 5;
+  voteRemaining = 10;
   state: boolean = false;
 
   //im testing to see if i can figure this out go away tommy
   //array of irish teams
   irishTeams = ["Dublin", "Cork", "Galway", "Limerick", "Kerry", "Tipperary", "Waterford", "Clare", "Offaly", "Westmeath"]
 
+   //load constructor of player array data. using service
+  constructor(){
+      this.teamService.getTeams().subscribe(
+        response => {
+          this.teams = response;
+        }
+      );
+  }
+
   clickedTop(){
+    if(this.voteRemaining <= 0){
+      return;
+    }
     console.log("clicked")
     this.state = true
     this.voteRemaining--;
     this.irishTeams.sort(() => Math.random() - 0.5);
+    this.teams.sort(() => Math.random() - 0.5);
   }
 
   clickedBottom(){
+    if(this.voteRemaining <= 0){
+      return;
+    }
     console.log("clicked")
     this.state = false
     this.voteRemaining--;
-    this.irishTeams.sort(() => Math.random() - 0.5);
+    this.teams.sort(() => Math.random() - 0.5);
   }
 
 }
