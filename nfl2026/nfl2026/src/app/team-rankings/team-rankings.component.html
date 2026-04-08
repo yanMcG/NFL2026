@@ -4,15 +4,15 @@
 <hr>
 
     <div >
-        <button class="btn btn-primary" style="width: 100%;" (click)="clickedTop()">{{teams[0].name}}</button>
+        <button class="btn btn-primary" style="width: 100%;" (click)="clickedTop(teams[0].name)">{{teams[0].name}}</button>
         <hr>
-        <button class="btn btn-primary" style="width: 100%;" (click)="clickedBottom()">{{teams[1].name}}</button>
+        <button class="btn btn-primary" style="width: 100%;" (click)="clickedBottom(teams[1].name)">{{teams[1].name}}</button>
     </div>
 
 
     @if(voteRemaining == 0){
         <div>
-            <p>You ran out of votes REFRESH THE PAGE TOMMY GO ON LADD!!</p>
+            <p>You ran out of votes REFRESH THE PAGE TOMMY</p>
         </div>
     }
     @else if(state){

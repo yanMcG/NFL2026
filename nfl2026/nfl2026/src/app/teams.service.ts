@@ -16,5 +16,9 @@ export class TeamsService {
     return this.http.get<Team[]>(this.url)
   }
 
+  increaseRank(teamName: string) : Observable<Team>{
+    return this.http.put<Team>(`${this.url}increaseRank`, { name: teamName });
+  }
+
   
 }

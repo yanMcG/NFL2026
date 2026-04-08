@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
 export class TeamRankingsComponent {
   teams: Team[] = [];
   teamService = inject(TeamsService);
-  voteRemaining = 10;
+  voteRemaining = 5;
   state: boolean = false;
 
   //im testing to see if i can figure this out go away tommy
@@ -33,18 +33,27 @@ export class TeamRankingsComponent {
       );
   }
 
-  clickedTop(){
+  clickedTop(teamName: string){
     if(this.voteRemaining <= 0){
       return;
     }
     console.log("clicked")
     this.state = true
     this.voteRemaining--;
-    this.irishTeams.sort(() => Math.random() - 0.5);
-    this.teams.sort(() => Math.random() - 0.5);
+   // this.irishTeams.sort(() => Math.random() - 0.5);
+    //this.teams.sort(() => Math.random() - 0.5);
+    //get that team powerrank and increase by 1
+     this.teamService.increaseRank(teamName).subscribe({
+      next: () => {
+        // Shuffle AFTER the vote is saved
+        this.irishTeams.sort(() => Math.random() - 0.5);
+        this.teams.sort(() => Math.random() - 0.5);
+      },
+      error: (err) => console.error(err)
+    });
   }
 
-  clickedBottom(){
+  clickedBottom(teamName: string){
     if(this.voteRemaining <= 0){
       return;
     }
@@ -52,6 +61,7 @@ export class TeamRankingsComponent {
     this.state = false
     this.voteRemaining--;
     this.teams.sort(() => Math.random() - 0.5);
+    this.teams[0].powerrank++;
   }
 
 }

@@ -47,6 +47,12 @@ app.route('/users')
 });
 
 
+//testing to see if can get team name from request
+app.route('/teams/increaseRank')
+  .put(function (req, res) {
+    model.increaseRank(req, res);
+  });
+
 var myServer = app.listen(3000, function() {
   console.log("Server listening on port 3000");
 });

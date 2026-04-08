@@ -86,3 +86,19 @@ exports.getTeam = function(req,res){
 
 
 
+module.exports.increaseRank = function(req, res) {
+    let teamName = req.body.name;
+    console.log("team chose:", teamName);
+    connection.query(
+        `UPDATE teams SET powerrank = powerrank + 1 WHERE name = ?`,
+        [teamName],
+        function(err, result) {
+            if(err) {
+                console.log("ITS NOT WORKING HELPP MEE:", err);
+                res.status(500).json({ error: err });
+            } else {
+                res.status(200).json(result);
+            }
+        }
+    );
+}
