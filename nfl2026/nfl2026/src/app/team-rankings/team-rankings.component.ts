@@ -20,16 +20,22 @@ export class TeamRankingsComponent {
   voteRemaining = 5;
   state: boolean = false;
 
+  //im testing to see if i can figure this out go away tommy
+  //array of irish teams
+  irishTeams = ["Dublin", "Cork", "Galway", "Limerick", "Kerry", "Tipperary", "Waterford", "Clare", "Offaly", "Westmeath"]
+
   clickedTop(){
     console.log("clicked")
     this.state = true
     this.voteRemaining--;
+    this.irishTeams.sort(() => Math.random() - 0.5);
   }
 
   clickedBottom(){
     console.log("clicked")
     this.state = false
     this.voteRemaining--;
+    this.irishTeams.sort(() => Math.random() - 0.5);
   }
 
 }
