@@ -15,5 +15,6 @@ export class TeamsService {
   getTeams() : Observable<Team[]>{
     return this.http.get<Team[]>(this.url)
   }
+
   
 }

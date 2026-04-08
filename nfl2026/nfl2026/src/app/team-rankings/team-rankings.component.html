@@ -1,1 +1,30 @@
-<p>team-rankings works!</p>
+<h1>Team Rankings</h1>
+<hr>
+<h2>Who has been the better team lately?</h2>
+<hr>
+
+    <div >
+        <button class="btn btn-primary" style="width: 100%;" (click)="clickedTop()"></button>
+        <hr>
+        <button class="btn btn-primary" style="width: 100%;" (click)="clickedBottom()"></button>
+    </div>
+
+
+    @if(voteRemaining == 0){
+        <div>
+            <p>You ran out of votes</p>
+        </div>
+    }
+    @else if(state){
+        <div>
+            <p>You chose the top team</p>
+        </div>
+    }
+    @else(){
+        <div>
+            <p>You chose the bottom team</p>
+        </div>
+    }
+
+
+<p>Votes remaining: {{ voteRemaining }}</p>
