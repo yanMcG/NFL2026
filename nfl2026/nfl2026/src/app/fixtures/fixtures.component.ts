@@ -43,6 +43,12 @@ export class FixturesComponent {
         }
       );
 
+      this.teamService.getTeams().subscribe(
+        response => {
+          this.teams = response;
+        }
+      );  
+
 
       // DOES NOT WORK, CANNOT GET TEAM COLOURS TO DISPLAY IN FIXTURES
       // this.teamService.getTeams().subscribe(

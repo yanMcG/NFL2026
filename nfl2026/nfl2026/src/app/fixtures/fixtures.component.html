@@ -18,14 +18,16 @@
     </tr>
   </thead>
   <tbody>
-    @for (fixture of fixtures; track fixture.id){
-      <tr *ngIf="fixture.division == +selectedoption || +selectedoption == 0">
+        @for (fixture of fixtures; track fixture.id){
+           @if(fixture.division == +selectedoption || +selectedoption == 0){
+      <tr>
           <td>{{fixture.division}}</td>
           <td>{{fixture.hteam}}</td>
           <td>{{fixture.hteamscore}}</td>
           <td>{{fixture.ateamscore}}</td>
           <td>{{fixture.ateam}}</td>
       </tr>
+    }
     }
   </tbody>
 </table>

@@ -1,0 +1,40 @@
+<h2>Results</h2>
+<form action="">
+<hr>
+<div style="display: flex; gap: 1%;">
+  @for (option of options; track option.id){
+    <input [(ngModel)]="selectedoption" type="radio" name="division" [value]="option.value">{{option.label}}
+  }
+</div>
+<hr>
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Division</th>
+      <th scope="col">Home Team</th>
+      <th scope="col">Score</th>
+      <th scope="col">Score</th>
+      <th scope="col">Away Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (fixture of fixtures; track fixture.id) {
+        <!-- basically, if the round is not the same as the current round, then print out the new round -->
+      <!-- it looks tricky so heres my source insparation https://blog.angular-university.io/angular-for/      https://blog.angular-university.io/angular-if/ -->
+        @if ($index === 0 || fixture.round !== fixtures[$index - 1].round) {
+        <br>
+          <h5><b>Round {{ fixture.round }}</b></h5>
+      }
+      @if(fixture.division == +selectedoption || +selectedoption == 0){
+      <tr>
+        <td>{{ fixture.division }}</td>
+        <td>{{ fixture.hteam }}</td>
+        <td>{{ fixture.hteamscore }}</td>
+        <td>{{ fixture.ateamscore }}</td>
+        <td>{{ fixture.ateam }}</td>
+      </tr>
+    }
+    }
+  </tbody>
+</table>
+</form>
