@@ -3,12 +3,13 @@
 <h2>Who has been the better team lately?</h2>
 <hr>
 
+
+
     <div >
         <button class="btn btn-primary" style="width: 100%;" (click)="clickedTop(teams[topRandomTeam].name)">{{teams[topRandomTeam].name}}</button>
         <hr>
         <button class="btn btn-primary" style="width: 100%;" (click)="clickedBottom(teams[bottomRandomTeam].name)">{{teams[bottomRandomTeam].name}}</button>
     </div>
-
 
     @if(voteRemaining == 0){
         <div>
