@@ -1,22 +1,63 @@
 <h1>Login</h1>
 @if(!isLoggedIn){
 <div>
-<form>
+<form [formGroup]='contactForm'>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" formControlName="email" aria-describedby="emailHelp">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1"><br>
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" formControlName="password"><br>
   </div>
-    <button type="submit" class="btn btn-primary">Login</button>
+    <button type="submit" class="btn btn-primary" (click)="login()">Login</button>
 </form>
 </div>
 }
 @else if(isLoggedIn){
+    <form [formGroup]='updateForm'>
     <div>
-        <h2>Welcome Tommy!</h2>
-    </div>
+        <h2>Results Admin!</h2>
+        <hr>
+        <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Division</th>
+      <th scope="col">Home Team</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col">Away Team</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+        @for (fixture of fixtures; track fixture.id){
+      <tr>
+          <td>{{fixture.division}}</td>
+          <td>{{fixture.hteam}}</td>
+
+        <div class="form-group">
+            <td><input #homeScore type="text" [value]="fixture.hteamscore"></td>
+            <td><input #awayScore type="text" [value]="fixture.ateamscore"></td>
+        </div>
+
+        <td>{{fixture.ateam}}</td>
+        <td><button class="btn-primary" (click)="updateFixture(fixture.id, homeScore.value, awayScore.value)">Update</button></td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+
+</div>
+</form>
+Home Team Score = {{updateForm.value.HomeTeamScore}}
+<br>
+Away Team Score = {{updateForm.value.AwayTeamScore}}
 }
+
+
+email = {{contactForm.value.email}}
+<br>
+password = {{contactForm.value.password}}
 
