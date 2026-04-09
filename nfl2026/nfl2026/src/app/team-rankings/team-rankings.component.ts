@@ -17,8 +17,13 @@ import { CommonModule } from '@angular/common';
 export class TeamRankingsComponent {
   teams: Team[] = [];
   teamService = inject(TeamsService);
-  voteRemaining = 5;
+  voteRemaining = 10;
   state: boolean = false;
+
+
+
+  topRandomTeam: number = Math.floor(Math.random() * this.teams.length);
+  bottomRandomTeam: number = Math.floor(Math.random() * this.teams.length);
 
   //im testing to see if i can figure this out go away tommy
   //array of irish teams
@@ -26,32 +31,38 @@ export class TeamRankingsComponent {
 
    //load constructor of player array data. using service
   constructor(){
+    for(let i = 0; i < 10; i++){
+      this.topRandomTeam = Math.floor(Math.random() * this.irishTeams.length);
+      this.bottomRandomTeam = Math.floor(Math.random() * this.irishTeams.length);
+    }
+
       this.teamService.getTeams().subscribe(
         response => {
           this.teams = response;
         }
       );
-  }
 
+
+  }
+// /////////////////////////////////CLICK TOP OR BOTTOM TEAM FUNCTIONS///////////////////////////////////////////////////
   clickedTop(teamName: string){
     if(this.voteRemaining <= 0){
       return;
     }
-    console.log("clicked")
+    console.log("clicked: " + teamName)
     this.state = true
     this.voteRemaining--;
-   // this.irishTeams.sort(() => Math.random() - 0.5);
-    //this.teams.sort(() => Math.random() - 0.5);
-    //get that team powerrank and increase by 1
-     this.teamService.increaseRank(teamName).subscribe({
+    this.teamService.increaseRank(teamName).subscribe({
       next: () => {
-        // Shuffle AFTER the vote is saved
-        this.irishTeams.sort(() => Math.random() - 0.5);
-        this.teams.sort(() => Math.random() - 0.5);
+        this.teams.sort(() => Math.random() * this.teams.length);
+        this.topRandomTeam = Math.floor(Math.random() * this.teams.length);
+        this.bottomRandomTeam = Math.floor(Math.random() * this.teams.length);
       },
-      error: (err) => console.error(err)
     });
   }
+
+
+
 
   clickedBottom(teamName: string){
     if(this.voteRemaining <= 0){
@@ -60,8 +71,13 @@ export class TeamRankingsComponent {
     console.log("clicked")
     this.state = false
     this.voteRemaining--;
-    this.teams.sort(() => Math.random() - 0.5);
-    this.teams[0].powerrank++;
+    this.teamService.increaseRank(teamName).subscribe({
+      next: () => {
+        this.teams.sort(() => Math.random() * this.teams.length);
+        this.bottomRandomTeam = Math.floor(Math.random() * this.teams.length);
+        this.topRandomTeam = Math.floor(Math.random() * this.teams.length);
+      },
+    });
   }
 
 }

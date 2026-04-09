@@ -1,6 +1,7 @@
-<h1>Login</h1>
 @if(!isLoggedIn){
 <div>
+<h1>Login</h1>
+<hr>
 <form [formGroup]='contactForm'>
   <div class="form-group">
     <label for="email">Email address</label>
@@ -19,6 +20,7 @@
     <div>
         <h2>Results Admin!</h2>
         <hr>
+        <hr>
         <table class="table table-striped">
     <thead>
     <tr>
@@ -32,18 +34,16 @@
   </thead>
   <tbody>
         @for (fixture of fixtures; track fixture.id){
-      <tr>
-          <td>{{fixture.division}}</td>
-          <td>{{fixture.hteam}}</td>
+        <tr>
+            <td>{{fixture.division}}</td>
+            <td>{{fixture.hteam}}</td>
         <!-- code inspiration : https://stackoverflow.com/questions/59124118/how-to-assign-value-to-the-input-text-field-using-template-reference-in-angular -->
-        <div class="form-group">
             <td><input #homeScore type="text" [value]="fixture.hteamscore"></td>
             <td><input #awayScore type="text" [value]="fixture.ateamscore"></td>
-        </div>
-
-        <td>{{fixture.ateam}}</td>
-        <td><button class="btn-primary" (click)="updateFixture(fixture.id, homeScore.value, awayScore.value)">Update</button></td>
+            <td>{{fixture.ateam}}</td>
+            <td><button class="btn btn-primary" (click)="updateFixture(fixture.id, homeScore.value, awayScore.value)">Update</button></td>
       </tr>
+    
     }
   </tbody>
 </table>
