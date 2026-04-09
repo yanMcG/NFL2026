@@ -36,6 +36,13 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="login">Login</a>
       </li>
+
+      
+      @if(isLoggedIn){
+        <li class="nav-item">
+        <a class="nav-link" routerLink="logout">Logout</a>
+      </li>
+      }
     </ul>
   </div>
 </nav>

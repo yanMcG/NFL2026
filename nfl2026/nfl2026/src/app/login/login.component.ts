@@ -18,7 +18,7 @@ export class LoginComponent {
   fixtures: Fixture[] = [];
   fixturesService = inject(FixturesService);
 
-  isLoggedIn: boolean = true;
+  isLoggedIn: boolean = false;
 
   contactForm = new FormGroup({
     email: new FormControl(''),

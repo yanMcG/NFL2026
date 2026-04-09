@@ -9,6 +9,7 @@ import { ScoringStats2Component } from './scoring-stats2/scoring-stats2.componen
 import { ScoringChartComponent } from './scoring-chart/scoring-chart.component';
 import { LoginComponent } from './login/login.component';
 import { ResultsComponent } from './results/results.component';
+import { LogoutComponent } from './logout/logout.component';
 
 export const routes: Routes = [
     {path : '', component: RoutesComponent, title: 'home'},
@@ -20,7 +21,8 @@ export const routes: Routes = [
     {path : 'scoring-stats-ii', component: ScoringStats2Component, title: 'scoring-stats II'},
     {path : 'scoring-chart', component: ScoringChartComponent, title: 'scoring-chart'},
     {path : 'login', component: LoginComponent, title: 'login'},
-    {path : 'results', component: ResultsComponent, title: 'results'}
+    {path : 'results', component: ResultsComponent, title: 'results'},
+    {path : 'logout', component: LogoutComponent, title: 'logout'},
 ];
 
 
