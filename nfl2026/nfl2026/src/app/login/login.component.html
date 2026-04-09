@@ -36,11 +36,31 @@
         @for (fixture of fixtures; track fixture.id){
         <tr>
             <td>{{fixture.division}}</td>
-            <td>{{fixture.hteam}}</td>
+
+            <!-- cheap code i know but it works -->
+            @if(fixture.hteam == "Div11st" || fixture.hteam == 'Div21st' || fixture.hteam == "Div31st" || fixture.hteam == "Div41st"){
+                <td><input #homeTeam type="text" [value]="fixture.hteam"></td>
+            }
+            @else{
+                <td>{{fixture.hteam}}</td>  
+            }
+
+
+
         <!-- code inspiration : https://stackoverflow.com/questions/59124118/how-to-assign-value-to-the-input-text-field-using-template-reference-in-angular -->
             <td><input #homeScore type="text" [value]="fixture.hteamscore"></td>
             <td><input #awayScore type="text" [value]="fixture.ateamscore"></td>
-            <td>{{fixture.ateam}}</td>
+
+
+            <!-- cheap code i know but it works -->
+             @if(fixture.ateam == "Div12nd" || fixture.ateam == 'Div22nd' || fixture.ateam == "Div32nd" || fixture.ateam == "Div42nd"){
+                <td><input #awayTeam type="text" [value]="fixture.ateam"></td>
+            }
+            @else{
+                <td>{{fixture.ateam}}</td>  
+            }
+
+
             <td><button class="btn btn-primary" (click)="updateFixture(fixture.id, homeScore.value, awayScore.value)">Update</button></td>
       </tr>
     
