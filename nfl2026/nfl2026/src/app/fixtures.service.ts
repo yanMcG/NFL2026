@@ -15,4 +15,13 @@ export class FixturesService {
     getFixtures() : Observable<Fixture[]>{
       return this.http.get<Fixture[]>(this.fixtureUrl)
     }
+
+    updateTeamScores(id: number, homeTeamScore: string, awayTeamScore: string): Observable<any> {
+      let url = `${this.fixtureUrl}${id}`;
+      let body = {
+        hteamscore: homeTeamScore,
+        ateamscore: awayTeamScore
+      };
+      return this.http.put(url, body);
+    }
 }

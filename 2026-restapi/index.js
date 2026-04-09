@@ -53,6 +53,13 @@ app.route('/teams/increaseRank')
     model.increaseRank(req, res);
   });
 
+//Hoping to call the function in DB, to chnage the home/away scores in database
+app.route('/fixtures/:id')
+  .put(function (req, res) {
+    console.log('server made it this far lads');
+    model.updateFixture(req, res);
+  });
+
 var myServer = app.listen(3000, function() {
   console.log("Server listening on port 3000");
 });

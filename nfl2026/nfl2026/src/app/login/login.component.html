@@ -35,7 +35,7 @@
       <tr>
           <td>{{fixture.division}}</td>
           <td>{{fixture.hteam}}</td>
-
+        <!-- code inspiration : https://stackoverflow.com/questions/59124118/how-to-assign-value-to-the-input-text-field-using-template-reference-in-angular -->
         <div class="form-group">
             <td><input #homeScore type="text" [value]="fixture.hteamscore"></td>
             <td><input #awayScore type="text" [value]="fixture.ateamscore"></td>

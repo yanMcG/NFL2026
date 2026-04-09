@@ -57,6 +57,15 @@ export class LoginComponent {
     console.log('updating fixture scores')
     console.log('Away Team Score:', awayTeamScore);
     console.log('Home Team Score:', homeTeamScore);
-  }
 
+    //update database for fixture tables with new hteam and ateam scores
+    this.fixturesService.updateTeamScores(id, homeTeamScore, awayTeamScore).subscribe(
+      response => {
+        console.log('Away Team, and Home Team scores updated youre welcome tommy');
+      },
+      error => {
+        console.error('feck sake');
+      }
+    );
+  }
 }

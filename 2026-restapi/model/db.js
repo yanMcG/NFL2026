@@ -93,12 +93,29 @@ module.exports.increaseRank = function(req, res) {
         `UPDATE teams SET powerrank = powerrank + 1 WHERE name = ?`,
         [teamName],
         function(err, result) {
-            if(err) {
-                console.log("ITS NOT WORKING HELPP MEE:", err);
-                res.status(500).json({ error: err });
-            } else {
-                res.status(200).json(result);
-            }
+           if (err) throw err;
+
+        res.status(200);
+        res.send(JSON.stringify(result));
+        }
+    );
+}
+
+
+
+module.exports.updateFixture = function(req, res) {
+    let homeTeamScore = req.body.hteamscore;
+    let awayTeamScore = req.body.ateamscore;
+    let fixtureId = req.params.id;
+    console.log("Updating the scores for tommy:", fixtureId);
+    connection.query(
+        `UPDATE fixtures SET hteamscore = ?, ateamscore = ? WHERE id = ?`,
+        [homeTeamScore, awayTeamScore, fixtureId],
+        function(err, result) {
+           if (err) throw err;
+
+        res.status(200);
+        res.send(JSON.stringify(result));
         }
     );
 }
