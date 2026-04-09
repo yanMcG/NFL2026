@@ -1,4 +1,5 @@
 <h2>Score For/Against</h2>
+<button (click)="press()">Press Me</button>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -8,5 +9,12 @@
     </tr>
   </thead>
   <tbody>
-  </tbody>
+  @for (item of mergedArray; track item.id) {
+      <tr>
+        <td><span style.color="rgb({{item.rgb}})" >&#9679;</span>{{ item.hteam }}</td>
+        <td>{{ item.hteamtotal }}</td>
+        <td>{{ item.ateamtotal }}</td>
+      </tr>
+  }
+</tbody>
 </table>
