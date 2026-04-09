@@ -1,1 +1,36 @@
-<p>scoring-stats works!</p>
+<h1>Score stats(per match)</h1>
+<hr>
+<div style="display: flex; gap: 1%;">
+  @for (option of options; track option.id){
+    <input [(ngModel)]="selectedoption" type="radio" name="division" [value]="option.value">{{option.label}}
+  }
+</div>
+<hr>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Team</th>
+      <th scope="col">Matches</th>
+      <th scope="col">Total</th>
+      <th scope="col">Goals</th>
+      <th scope="col">2Pts</th>
+      <th scope="col">1Pts</th>
+    </tr>
+  </thead>
+  <tbody>
+         @for (fixture of fixtures; track fixture.id){
+           @if(fixture.division == +selectedoption || +selectedoption == 0){
+        <tr>
+          <td>{{fixture.hteam}}</td>
+          <td>{{fixture.round}}</td>
+          <td>{{fixture.hteamtotal}}</td>
+          <td>{{fixture.hgls}}</td>
+          <td>{{fixture.h2pts}}</td>
+          <td>{{fixture.h1pts}}</td>
+        </tr>  
+            }     
+          }
+
+  </tbody>
+</table>
