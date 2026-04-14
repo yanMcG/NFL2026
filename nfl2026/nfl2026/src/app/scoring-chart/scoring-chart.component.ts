@@ -19,13 +19,10 @@ export class ScoringChartComponent {
 
     fixtures: Fixture[] = [];
     fixturesService = inject(FixturesService);
-
     teams: Team[] = [];
     teamservice = inject(TeamsService);
 
     mergedArray: any[] = [];
-
-    //conactinate the two arrays
 
     constructor(){
         this.fixturesService.getFixtures().subscribe(
@@ -39,22 +36,13 @@ export class ScoringChartComponent {
             this.teams = response;
           }
         ); 
-        this.press();
-        //conactinate the two arrays https://youtu.be/9KGggRHysg0?si=-ccR9zOkJI4HimSO    https://www.geeksforgeeks.org/javascript/how-to-merge-two-different-arrays-of-objects-with-unique-values-only-in-javascript/
-        //this.fixtures = this.fixtures.concat(this.this.teams);
-
     }
 
-     press(){
-        //this.mergedArray = [...this.fixtures, ...this.this.teams]
-
-       const map = new Map([...this.teams, ...this.fixtures]
-    .map(obj => [obj.id, obj]));
-
-        this.mergedArray = Array.from(map.values());
-
-        console.log("button pressed")
-        console.log('merged array:',this.mergedArray);
-        }
+    //conactinate the two arrays https://youtu.be/9KGggRHysg0?si=-ccR9zOkJI4HimSO    https://www.geeksforgeeks.org/javascript/how-to-merge-two-different-arrays-of-objects-with-unique-values-only-in-javascript/
+    press(){
+      const map = new Map([...this.teams, ...this.fixtures].map(obj => [obj.id, obj]));
+      this.mergedArray = Array.from(map.values());
+      console.log('merged array:',this.mergedArray);
+    }
   
 }
