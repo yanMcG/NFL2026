@@ -35,13 +35,7 @@ export class ScoringStatsComponent {
    ]
   
     constructor(){
-        this.fixturesService.getFixtures().subscribe(
-          response => {
-            this.fixtures = response;
-          }
-        );
-  
-        this.teamService.getTeams().subscribe(
+        this.teamService.getTeamAndFixtures().subscribe(
           response => {
             this.teams = response;
           }

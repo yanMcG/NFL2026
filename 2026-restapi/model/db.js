@@ -119,3 +119,19 @@ module.exports.updateFixture = function(req, res) {
         }
     );
 }
+
+
+
+//did not do this before, so : https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_join
+module.exports.teamAndFixtures = function(req, res) {
+    console.log('doing the join of the teo tables');
+    connection.query(
+        `SELECT teams.*, fixtures.* FROM teams JOIN fixtures ON teams.id = fixtures.id`,
+        function(err, result) {
+           if (err) throw err;
+
+        res.status(200);
+        res.send(JSON.stringify(result));
+        }
+    );
+}

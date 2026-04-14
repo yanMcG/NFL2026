@@ -20,5 +20,8 @@ export class TeamsService {
     return this.http.put<Team>(`${this.url}increaseRank`, { name: teamName });
   }
 
-  
+  getTeamAndFixtures() : Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:3000/scoring-stats`);
+  }
+
 }

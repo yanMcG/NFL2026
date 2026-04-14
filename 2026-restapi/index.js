@@ -60,6 +60,12 @@ app.route('/fixtures/:id')
     model.updateFixture(req, res);
   });
 
+
+app.route('/scoring-stats') 
+   .get(function (req, res) {  
+    model.teamAndFixtures(req, res);
+  });
+
 var myServer = app.listen(3000, function() {
   console.log("Server listening on port 3000");
 });

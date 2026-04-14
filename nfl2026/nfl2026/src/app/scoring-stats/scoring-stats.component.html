@@ -19,15 +19,15 @@
     </tr>
   </thead>
   <tbody>
-         @for (fixture of fixtures; track fixture.id){
-           @if(fixture.division == +selectedoption || +selectedoption == 0){
+         @for (team of teams; track team.id){
+           @if(team.division == +selectedoption || +selectedoption == 0){
         <tr>
-          <td>{{fixture.hteam}}</td>
-          <td>{{fixture.round}}</td>
-          <td>{{fixture.hteamtotal}}</td>
-          <td>{{fixture.hgls}}</td>
-          <td>{{fixture.h2pts}}</td>
-          <td>{{fixture.h1pts}}</td>
+          <td>{{team.hteam}}</td>
+          <td>{{team.round}}</td>
+          <td>{{team.hteamtotal}}</td>
+          <td>{{team.hgls}}</td>
+          <td>{{team.h2pts}}</td>
+          <td>{{team.h1pts}}</td>
         </tr>  
             }     
           }
