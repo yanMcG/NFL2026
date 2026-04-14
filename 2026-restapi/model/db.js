@@ -122,11 +122,13 @@ module.exports.updateFixture = function(req, res) {
 
 
 
-//did not do this before, so : https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_join
+//did not do this before, so : https://www.w3schools.com/sql/sql_join.asp https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_join
 module.exports.teamAndFixtures = function(req, res) {
     console.log('doing the join of the teo tables');
     connection.query(
-        `SELECT teams.*, fixtures.* FROM teams JOIN fixtures ON teams.id = fixtures.id`,
+        `SELECT fixtures.* 
+         FROM fixtures 
+         CROSS JOIN teams`,
         function(err, result) {
            if (err) throw err;
 

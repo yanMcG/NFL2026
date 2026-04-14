@@ -22,7 +22,7 @@
          @for (team of teams; track team.id){
            @if(team.division == +selectedoption || +selectedoption == 0){
         <tr>
-          <td>{{team.hteam}}</td>
+          <td><span style.color="rgb({{team.rgb}})" >&#9679;</span>{{team.hteam}}</td>
           <td>{{team.round}}</td>
           <td>{{team.hteamtotal}}</td>
           <td>{{team.hgls}}</td>
